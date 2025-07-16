@@ -4,117 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tienda de Perfumes</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="src/styles/main.css">
+    <link rel="icon" href="src/assets/img/logo.png" type="image/x-icon">
 </head>
 <body>
-    <header>
-        <nav class="navbar">
-            <ul class="nav-links">
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#nicho">Perfumes Nicho</a></li>
-                <li><a href="#hombre">Perfumes Hombre</a></li>
-                <li><a href="#mujer">Perfumes Mujer</a></li>
-                <li><a href="#unisex">Perfumes Unisex</a></li>
-                <li><a href="#otros">Otros Perfumes</a></li>
-            </ul>
-        </nav>
-
-    </header>
-    <section id = "inicio">
-        <h1>Bienvenidos a nuestra Tienda de Perfumes</h1>
-        <p>Descubre la mejor selección de perfumes de alta calidad.</p>
-        <p>Encuentra el aroma perfecto para cada ocasión.</p>
-        <div id ="promo">
-            <h2>Perfumes de Nicho - Perfumes de Moda</h2>
-            <p>Envíos gratis por compras mayores a $200.000</p>
-            <p>Más de 200 productos disponibles</p>
-        </div> 
-    </section>
-    <section class="container" id="nicho">
-        <h2>Perfumes Nicho</h2>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Nicho 1">
-            <h3>Perfume Nicho 1</h3>
-            <p>Descripción del perfume de nicho 1.</p>
-            <p>$150.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Nicho 2">
-            <h3>Perfume Nicho 2</h3>
-            <p>Descripción del perfume de nicho 2.</p>
-            <p>$160.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-    </section>
-    <section class="container" id="hombre">
-        <h2>Perfumes Hombre</h2>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Hombre 1">
-            <h3>Perfume Hombre 1</h3>
-            <p>Descripción del perfume para hombre 1.</p>
-            <p>$120.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Hombre 2">
-            <h3>Perfume Hombre 2</h3>
-            <p>Descripción del perfume para hombre 2.</p>
-            <p>$130.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-    </section>
-    <section class="container" id="mujer">
-        <h2>Perfumes Mujer</h2>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Mujer 1">
-            <h3>Perfume Mujer 1</h3>
-            <p>Descripción del perfume para mujer 1.</p>
-            <p>$140.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Mujer 2">
-            <h3>Perfume Mujer 2</h3>
-            <p>Descripción del perfume para mujer 2.</p>
-            <p>$150.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-    </section>
-    <section class="container" id="unisex">
-        <h2>Perfumes Unisex</h2>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Unisex 1">
-            <h3>Perfume Unisex 1</h3>
-            <p>Descripción del perfume unisex 1.</p>
-            <p>$130.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Perfume Unisex 2">
-            <h3>Perfume Unisex 2</h3>
-            <p>Descripción del perfume unisex 2.</p>
-            <p>$140.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-    </section>
-    <section class="container" id="otros">
-        <h2>Otros Perfumes</h2>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Otro Perfume 1">
-            <h3>Otro Perfume 1</h3>
-            <p>Descripción del otro perfume 1.</p>
-            <p>$110.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-        <div class="perfume">
-            <img src="https://via.placeholder.com/150" alt="Otro Perfume 2">
-            <h3>Otro Perfume 2</h3>
-            <p>Descripción del otro perfume 2.</p>
-            <p>$120.00</p>
-            <button>Añadir al carrito</button>
-        </div>
-    </section>
+<header>
+    <nav class="navbar">
+        <img src="src/assets/img/logo.png" alt="logo"></img>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="src/pages/nicho.html">Perfumes Nicho</a></li>
+            <li><a href="src/pages/hombre.html">Perfumes Hombre</a></li>
+            <li><a href="src/pages/mujer.html">Perfumes Mujer</a></li>
+            <li>
+                <details>
+                    <summary class="sum">Temporadas</summary>
+                    <div class="dropdown-content">
+                        <a href="src/pages/temporadas/verano.html">Verano</a>
+                        <a href="src/pages/temporadas/invierno.html">Invierno</a>
+                        <a href="src/pages/temporadas/otoño.html">Otoño</a>
+                        <a href="src/pages/temporadas/primavera.html">Primavera</a>
+                    </div>
+                </details>
+            </li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>
+    <main>
+        <section id = "inicio">
+            <h1>Bienvenidos a nuestra Tienda de Perfumes</h1>
+            <p>Descubre la mejor selección de perfumes de alta calidad.</p>
+            <p>Encuentra el aroma perfecto para cada ocasión.</p>
+            <div id ="promo">
+                <p>Envíos gratis por compras mayores a $200.000</p>
+                <p>Más de 200 productos disponibles</p>
+            </div> 
+        </section>
+    </main>
     <footer>
         <p>&copy; 2025 Tienda de Perfumes. Todos los derechos reservados.</p>
         <p>Recibimos pagos por Nequi y Bancolombia</p>
