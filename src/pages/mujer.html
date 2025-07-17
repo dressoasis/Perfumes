@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,29 +8,30 @@
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="icon" href="../assets/img/logo.png" type="image/x-icon">
 </head>
+
 <body>
-<header>
-    <nav class="navbar">
-        <img src="../assets/img/logo.png" alt="logo">
-        <ul class="nav-links">
-            <li><a href="../../index.html">Inicio</a></li>
-            <li><a href="nicho.html">Perfumes Nicho</a></li>
-            <li><a href="hombre.html">Perfumes Hombre</a></li>
-            <li><a href="mujer.html">Perfumes Mujer</a></li>
-            <li>
-                <details>
-                    <summary class="sum">Temporadas</summary>
-                    <div class="dropdown-content">
-                        <a href="temporadas/verano.html">Verano</a>
-                        <a href="temporadas/invierno.html">Invierno</a>
-                        <a href="temporadas/otoño.html">Otoño</a>
-                        <a href="temporadas/primavera.html">Primavera</a>
-                    </div>
-                </details>
-            </li>
-        </ul>
-    </nav>
-</header>
+    <header>
+        <nav class="navbar">
+            <img src="../assets/img/logo.png" alt="logo">
+            <ul class="nav-links">
+                <li><a href="../../index.html">Inicio</a></li>
+                <li><a href="nicho.html">Perfumes Nicho</a></li>
+                <li><a href="hombre.html">Perfumes Hombre</a></li>
+                <li><a href="mujer.html">Perfumes Mujer</a></li>
+                <li>
+                    <details>
+                        <summary class="sum">Temporadas</summary>
+                        <div class="dropdown-content">
+                            <a href="temporadas/verano.html">Verano</a>
+                            <a href="temporadas/invierno.html">Invierno</a>
+                            <a href="temporadas/otoño.html">Otoño</a>
+                            <a href="temporadas/primavera.html">Primavera</a>
+                        </div>
+                    </details>
+                </li>
+            </ul>
+        </nav>
+    </header>
     <main>
         <section id="mujer">
             <h1>Perfumes para Mujer</h1>
@@ -52,8 +54,51 @@
             </div>
         </section>
     </main>
+    <div class="card">
+        <ul>
+            <li class="iso-pro">
+                <span></span>
+                <span></span>
+                <span></span>
+                <a href="https://www.facebook.com/tu_pagina" target="_blank">
+                    <img src="../assets/img/ico.redes/facebook.ico" alt="Facebook" class="svg-img" />
+                </a>
+                <div class="text">Facebook</div>
+            </li>
+            <li class="iso-pro">
+                <span></span>
+                <span></span>
+                <span></span>
+                <a href="https://twitter.com/tu_usuario" target="_blank">
+                    <img src="../assets/img/ico.redes/instagram.ico" alt="Instagram" class="svg-img" />
+                </a>
+                <div class="text">Instagram</div>
+            </li>
+            <li class="iso-pro">
+                <span></span>
+                <span></span>
+                <span></span>
+                <a href="https://www.instagram.com/tu_usuario" target="_blank">
+                    <img src="../assets/img/ico.redes/whatsapp.ico" alt="Whatsapp" class="svg-img" />
+                </a>
+                <div class="text">Whatsapp</div>
+            </li>
+        </ul>
+    </div>
+
     <footer>
         <p>&copy; 2025 Tienda de Perfumes. Todos los derechos reservados.</p>
     </footer>
+    <script>
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
+
 </html>

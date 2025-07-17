@@ -1,25 +1,35 @@
+/* ==== Colores Base ==== */
+:root {
+    --negro: #000000;
+    --blanco: #ffffff;
+    --dorado: #d4af37;
+    --gris-oscuro: #1a1a1a;
+}
+
 * {
-    margin: 0; /* Remove default margin */
-    padding: 0; /* Remove default padding */
-    box-sizing: border-box; /* Include padding and border in element's total width and height */
-    scroll-behavior: smooth; /* Smooth scroll behavior */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Arial', sans-serif;
-    color: rgb(10, 10, 10);
-    line-height: 1.6;
-    padding-top: 6rem; /* Compensar navbar fijo */
+    font-family: 'Segoe UI', sans-serif;
+    color: var(--blanco);
+    background-color: var(--negro);
+    padding-top: 10rem;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
-
+    line-height: 1.6;
+    padding: 5rem;
 }
 
-@keyframes reveal{
+@keyframes reveal {
     from {
         opacity: 0;
         translate: 0 100px;
     }
+
     to {
         opacity: 1;
         translate: 0 0;
@@ -27,16 +37,24 @@ body {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes fadeOut {
-    from { opacity: 1; }
-    to { opacity: 0; }
+    from {
+        opacity: 1;
+    }
 
+    to {
+        opacity: 0;
+    }
 }
-
 
 .navbar {
     position: fixed;
@@ -45,7 +63,7 @@ body {
     width: 100%;
     height: 7rem;
     display: flex;
-    align-items: center; 
+    align-items: center;
     justify-content: space-between;
     padding: 1.25rem 8vw;
     background-color: rgba(0, 0, 0, 1);
@@ -65,48 +83,36 @@ body {
     list-style: none;
     display: flex;
     gap: clamp(0.4rem, 1.5vw, 4rem);
-    transition: color 1s;
     align-items: center;
     justify-content: center;
 }
 
-.nav-links li a {
+.nav-links li a,
+.sum {
     font-size: clamp(0.6rem, 2vw, 3rem);
     text-decoration: none;
     color: white;
     font-weight: bold;
     transition: color 0.3s, transform 0.3s ease-in-out;
     display: flex;
-
 }
 
-.nav-links li a:hover {
-    color: #00ffcc;
+.nav-links li a:hover,
+.sum:hover {
+    color: var(--dorado);
     transform: scale(1.1);
 }
+
 .navbar img {
     width: 8rem;
     height: 8rem;
     border-radius: 50%;
     transition: transform 0.3s ease-in-out;
 }
+
 .navbar img:hover {
     transform: scale(1.1);
 }
-.sum{
-    font-size: clamp(0.6rem, 2vw, 3rem);
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    transition: color 0.3s, transform 0.3s ease-in-out;
-    display: flex;
-
-}
-.sum:hover {
-    color: #00ffcc;
-    transform: scale(1.1);
-}
-
 
 details {
     position: relative;
@@ -119,7 +125,6 @@ summary {
     color: white;
     padding: 14px 16px;
     cursor: pointer;
-    
 }
 
 .dropdown-content {
@@ -127,7 +132,7 @@ summary {
     position: absolute;
     background-color: #030303;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
 }
 
@@ -170,39 +175,354 @@ details[open] .dropdown-content {
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 5px;
     padding: 20px;
+    justify-content: center;
 }
+
 .perfume {
-    background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    margin: 10px;
-    width: 200px;
+    background-color: var(--gris-oscuro);
+    border: 1px solid var(--dorado);
+    border-radius: 10px;
+    padding: 16px;
+    color: var(--blanco);
+    width: 20rem;
     text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.perfume:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
 .perfume img {
     max-width: 100%;
     height: auto;
+    border-radius: 8px;
+    margin-bottom: 8px;
 }
-.promo {
-    background-color: #fff;
-    padding: 20px;
-    margin: 20px;
-    text-align: center;
-    border: 1px solid #ddd;
+
+.perfume h3 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--dorado);
+    margin-bottom: 4px;
+}
+
+.perfume p,
+.price span {
+    color: var(--blanco);
+    font-size: 1rem;
+}
+
+.price {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin: 6px 0;
+}
+
+.boton-carrito {
+    background-color: var(--dorado);
+    color: var(--negro);
+    border: none;
+    padding: 10px 16px;
+    margin-top: 5px;
     border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
+
+.boton-carrito:hover {
+    background-color: #c5a02d;
+}
+
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 10px 0;
-    position: fixed;
     width: 100%;
     bottom: 0;
 }
-            
+
+main {
+    padding: 40px 20px;
+}
+
+#hombre h1 {
+    text-align: center;
+    color: var(--dorado);
+    margin-bottom: 10px;
+    font-size: 2rem;
+}
+
+#hombre p {
+    text-align: center;
+    color: var(--blanco);
+    margin-bottom: 30px;
+}
+
+
+
+.carrousel {
+    width: 100%;
+
+}
+
+.conteCarrousel {
+    width: 100%;
+    height: 600px;
+    align-items: center;
+    overflow: hidden;
+    justify-content: center;
+    display: grid;
+    justify-items: center;
+
+}
+
+.itemCarrousel {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+}
+
+.itemCarrouselTarjeta {
+    width: 100%;
+    height: 100%;
+}
+
+.itemCarrouselArrows {
+    position: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.itemCarrouselArrows>i:hover {
+    cursor: pointer;
+}
+
+#itemCarrousel-1 {
+    background-color: rgb(27, 27, 27);
+
+}
+
+#itemCarrousel-2 {
+    background-color: rgb(32, 32, 32);
+}
+
+#itemCarrousel-3 {
+    background-color: rgb(5, 5, 5);
+}
+
+.conteCarrouselController {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.conteCarrouselController>a {
+    text-decoration: none;
+    font-size: 2em;
+    color: grey;
+}
+
+.itemCarrouselArrows>a>i {
+    color: white;
+}
+
+img {
+    width: 100%;
+    height: auto;
+    align-items: center;
+    object-fit: contain;
+
+}
+
+.card {
+    position: fixed;
+    /* Fijo en pantalla */
+    bottom: 20px;
+    /* Separado 20px del borde inferior */
+    left: 20px;
+    /* Separado 20px del borde izquierdo */
+    z-index: 9999;
+    /* Por encima de otros elementos */
+
+    max-width: fit-content;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    gap: 1rem;
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.192),
+        inset 0 0 5px rgba(255, 255, 255, 0.274),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: 0.5s;
+}
+
+.card:hover {
+    animation: ease-out 5s;
+    background: rgba(173, 173, 173, 0.05);
+}
+
+.card ul {
+    padding: 1rem;
+    display: flex;
+    list-style: none;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.card ul li {
+    cursor: pointer;
+    position: relative;
+}
+
+/* Imagen usada como icono */
+.svg-img {
+    height: 60px;
+    width: 60px;
+    padding: 1rem;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    transition: all 0.3s;
+    filter: invert(65%) sepia(54%) saturate(535%) hue-rotate(8deg) brightness(98%) contrast(85%);
+}
+
+/* Texto emergente al pasar el mouse */
+.text {
+    opacity: 0;
+    border-radius: 5px;
+    padding: 5px;
+    transition: all 0.3s;
+    color: rgb(255, 174, 0);
+    background-color: rgba(255, 255, 255, 0.3);
+    position: absolute;
+    z-index: 9999;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: -5px 0 1px rgba(153, 153, 153, 0.2),
+        -10px 0 1px rgba(153, 153, 153, 0.2),
+        inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5),
+        0 5px 5px rgba(0, 0, 0, 0.082);
+}
+
+/* Proyección isométrica al hacer hover */
+.iso-pro {
+    transition: 0.5s;
+}
+
+.iso-pro:hover a>.svg-img {
+    transform: translate(15px, -15px);
+}
+
+.iso-pro:hover .text {
+    opacity: 1;
+    transform: translate(25px, -2px) skew(-5deg);
+}
+
+.iso-pro:hover .svg-img {
+    transform: translate(5px, -5px);
+}
+
+/* Círculos de fondo decorativos */
+.iso-pro span {
+    opacity: 0;
+    position: absolute;
+    border-color: #1877f2;
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
+        inset 0 0 5px rgba(255, 255, 255, 0.5),
+        0 5px 5px rgba(0, 0, 0, 0.164);
+    border-radius: 50%;
+    transition: all 0.3s;
+    height: 60px;
+    width: 60px;
+}
+
+.iso-pro:hover span {
+    opacity: 1;
+}
+
+.iso-pro:hover span:nth-child(1) {
+    opacity: 0.2;
+}
+
+.iso-pro:hover span:nth-child(2) {
+    opacity: 0.4;
+    transform: translate(5px, -5px);
+}
+
+.iso-pro:hover span:nth-child(3) {
+    opacity: 0.6;
+    transform: translate(10px, -10px);
+}
+
+.container-flayer {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.flayer {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.flayer img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.flayer-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: var(--blanco);
+    z-index: 1;
+}
+
+.flayer-text h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.flayer-text p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
