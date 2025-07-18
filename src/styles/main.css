@@ -1,9 +1,45 @@
 /* ==== Colores Base ==== */
 :root {
-    --negro: #000000;
-    --blanco: #ffffff;
-    --dorado: #d4af37;
-    --gris-oscuro: #1a1a1a;
+    --backgroud-page: #000000;
+    --color-titles: #ffffff;
+    --color-articles: #d4af37;
+    --color-paragraphs: #f8f7f7;
+    --backgroud-article: #1a1a1a;
+    --bg-card-perfume: #27272a;
+    --primary-perfume: #d4af37;
+    --primary-perfume-800: #9b8027;
+    --primary-perfume-shadow: #413511;
+    --paragraph-perfume: #d9d9d9;
+    --zinc-800: #18181b;
+    --bg-linear: linear-gradient(0deg, var(--primary-perfume) 50%, var(--paragraph-perfume) 125%);
+}
+
+:root[data-theme="girl"] {
+    --backgroud-page: #f8ecea;
+    /* Negro profundo pero con un matiz cálido */
+    --color-titles: #f2817a;
+    /* Rosa lavanda claro, elegante para títulos */
+    --color-articles: #D4AF37;
+    /* Se mantiene como dorado de lujo */
+    --color-paragraphs: #000706;
+    /* Texto claro neutro */
+    --backgroud-article: #f6cfcc;
+    /* Fondo oscuro de sección */
+
+    --bg-card-perfume: #f8ecea;
+    /* Gris oscuro con tono malva/lavanda muy sutil */
+    --primary-perfume: #d6b6b5;
+    /* Champagne rosado */
+    --primary-perfume-800: #e7857b;
+    /* Versión más oscura del rosado */
+    --primary-perfume-shadow: #9b5649;
+    /* Sombra profunda femenina */
+    --paragraph-perfume: #9e908e;
+    /* Texto o acento rosado claro */
+
+    --zinc-800: #FFF8F0;
+    /* Fondo profundo gris oscuro (sin cambio) */
+    --bg-linear: linear-gradient(180deg, var(--primary-perfume) 0%, var(--paragraph-perfume) 100%);
 }
 
 * {
@@ -13,15 +49,16 @@
     scroll-behavior: smooth;
 }
 
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    color: var(--blanco);
-    background-color: var(--negro);
+    color: var(--color-titles);
+    background-color: var(--backgroud-page);
     padding-top: 10rem;
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
     line-height: 1.6;
-    padding: 5rem;
+    padding: 1px;
 }
 
 @keyframes reveal {
@@ -66,7 +103,7 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 1.25rem 8vw;
-    background-color: rgba(0, 0, 0, 1);
+    background-color: var(--backgroud-page)(0, 0, 0, 1);
     z-index: 9999;
     transition: all 0.3s ease;
 }
@@ -91,7 +128,7 @@ body {
 .sum {
     font-size: clamp(0.6rem, 2vw, 3rem);
     text-decoration: none;
-    color: white;
+    color: var(--color-titles);
     font-weight: bold;
     transition: color 0.3s, transform 0.3s ease-in-out;
     display: flex;
@@ -99,7 +136,7 @@ body {
 
 .nav-links li a:hover,
 .sum:hover {
-    color: var(--dorado);
+    color: var(--color-articles);
     transform: scale(1.1);
 }
 
@@ -130,7 +167,7 @@ summary {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #030303;
+    background-color: var(--backgroud-page);
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
@@ -141,7 +178,7 @@ details[open] .dropdown-content {
 }
 
 .dropdown-content a {
-    color: black;
+    color: var(--zinc-800);
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -149,101 +186,164 @@ details[open] .dropdown-content {
 }
 
 .dropdown-content a:hover {
-    background-color: #a5a3a3;
+    background-color: var(--bg-linear);
 }
 
-#inicio {
-    text-align: center;
-    padding: 80px 20px;
-    display: flex;
-}
-
-#inicio h1 {
-    font-size: 50px;
-    margin-bottom: 30px;
-    text-align: center;
-    justify-content: center;
-    display: flex;
-}
-
-#inicio p {
-    margin-bottom: 10px;
-    color: #fa0303;
-    font-size: 10px;
-    text-align: center;
-    justify-content: center;
-}
 
 .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 5px;
-    padding: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     justify-content: center;
+    /* Alinea el grid como bloque */
+    align-items: center;
+    gap: 50px;
+    /* en lugar de row-gap + column-gap */
+    padding: 20px 0 10px;
+    /* evita doble padding */
+    width: 100%;
+    max-width: 1200px;
+    /* o el límite que prefieras */
+    margin: 0 auto;
+    /* Esto lo centra horizontalmente */
 }
+
 
 .perfume {
-    background-color: var(--gris-oscuro);
-    border: 1px solid var(--dorado);
-    border-radius: 10px;
-    padding: 16px;
-    color: var(--blanco);
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+
+    padding: 1rem;
     width: 20rem;
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--bg-card-perfume);
+
+    border-radius: 1rem;
 }
 
-.perfume:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+.img-perfume {
+    overflow: hidden;
+    cursor: pointer;
+
+    position: relative;
+    z-index: 5;
+
+    width: 100%;
+    height: 18rem;
+    background-color: var(--primary-perfume-800);
+
+    border-radius: 0.5rem;
 }
 
-.perfume img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-bottom: 8px;
+.img-perfume .image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 3rem;
+    fill: var(--paragraph-perfume);
 }
 
-.perfume h3 {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: var(--dorado);
-    margin-bottom: 4px;
+.perfume-title {
+    overflow: clip;
+    justify-content: center;
+    width: 100%;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-articles);
+    text-transform: capitalize;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
 }
 
-.perfume p,
-.price span {
-    color: var(--blanco);
-    font-size: 1rem;
+.perfume-size {
+    font-size: 0.75rem;
+    color: var(--paragraph-perfume);
+}
+
+.list-size {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+
+    margin-top: 0.25rem;
+}
+
+.list-size .item-list {
+    list-style: none;
+}
+
+.list-size .item-list-button {
+    cursor: pointer;
+
+    padding: 0.5rem;
+    background-color: var(--zinc-800);
+
+    font-size: 0.75rem;
+    color: var(--paragraph-perfume);
+
+    border: 2px solid var(--zinc-800);
+    border-radius: 0.25rem;
+
+    transition: all 0.3s ease-in-out;
+}
+
+.item-list-button:hover {
+    border: 2px solid var(--color-articles);
+}
+
+.item-list-button:focus {
+    background-color: var(--primary-perfume);
+    color: var(--zinc-800);
+    border: 2px solid var(--primary-perfume-shadow);
+
+    box-shadow: inset 0px 1px 4px var(--primary-perfume-shadow);
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
 }
 
 .price {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin: 6px 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--paragraph-perfume);
 }
 
-.boton-carrito {
-    background-color: var(--dorado);
-    color: var(--negro);
-    border: none;
-    padding: 10px 16px;
-    margin-top: 5px;
-    border-radius: 5px;
+.cart-button {
     cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+
+    padding: 0.5rem;
+    width: 100%;
+    background-image: var(--color-titles);
+
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-articles);
+    text-wrap: nowrap;
+
+    border: 2px solid hwb(56 53% 2% / 0.5);
+    border-radius: 0.5rem;
+    box-shadow: inset 0 0 0.25rem 1px var(--zinc-800);
 }
 
-.boton-carrito:hover {
-    background-color: #c5a02d;
+.cart-button .cart-icon {
+    width: 1rem;
 }
+
 
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--zinc-800);
+    color: var(--color-paragraphs);
     text-align: center;
     padding: 10px 0;
     width: 100%;
@@ -256,27 +356,36 @@ main {
 
 #hombre h1 {
     text-align: center;
-    color: var(--dorado);
+    color: var(--color-articles);
     margin-bottom: 10px;
     font-size: 2rem;
+    margin-top: 4rem;
+
 }
 
 #hombre p {
     text-align: center;
-    color: var(--blanco);
+    color: var(--color-titles);
     margin-bottom: 30px;
 }
 
+#main-carrucel {
+    text-align: center;
+    position: relative;
+    /* Center text */
 
+}
 
 .carrousel {
-    width: 100%;
+    width: 80%;
+    justify-self: center;
+    margin-top: 80px;
 
 }
 
 .conteCarrousel {
     width: 100%;
-    height: 600px;
+    height: 37.5rem;
     align-items: center;
     overflow: hidden;
     justify-content: center;
@@ -357,7 +466,7 @@ img {
     /* Fijo en pantalla */
     bottom: 20px;
     /* Separado 20px del borde inferior */
-    left: 20px;
+    left: 1rem;
     /* Separado 20px del borde izquierdo */
     z-index: 9999;
     /* Por encima de otros elementos */
@@ -399,9 +508,9 @@ img {
 
 /* Imagen usada como icono */
 .svg-img {
-    height: 60px;
-    width: 60px;
-    padding: 1rem;
+    height: clamp(2.5rem, 3vw, 5rem);
+    width: clamp(2.5rem, 3vw, 5rem);
+    ;
     border-radius: 50%;
     object-fit: cover;
     box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.3),
@@ -481,48 +590,61 @@ img {
     transform: translate(10px, -10px);
 }
 
-.container-flayer {
-    position: fixed;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+#container-flayer {
+    text-align: center;
+    /* Center text */
+    padding: 2rem 2rem;
 }
 
-.flayer {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-}
+
 
 .flayer img {
     width: 100%;
     height: auto;
     object-fit: cover;
     opacity: 0.8;
+    padding: 5rempx;
+    border-radius: 10px;
+
 }
 
 .flayer-text {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     text-align: center;
-    color: var(--blanco);
-    z-index: 1;
+    position: relative;
+    color: var(--color-titles);
+
 }
 
 .flayer-text h2 {
+    color: var(--color-articles);
     font-size: 3rem;
     margin-bottom: 1rem;
+    animation: fadeIn 1s ease-in-out;
+    animation-fill-mode: forwards;
 }
 
 .flayer-text p {
     font-size: 1.5rem;
     margin-bottom: 2rem;
+    animation: fadeIn 1s ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+#mujer {
+    background-color: var(--backgroud-article);
+}
+
+#mujer h1 {
+    text-align: center;
+    color: var(--color-articles);
+    margin-bottom: 10px;
+    font-size: 2rem;
+    margin-top: 4rem;
+
+}
+
+#mujer p {
+    text-align: center;
+    color: var(--paragraph-perfume);
+    margin-bottom: 30px;
 }
